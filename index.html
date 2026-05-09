@@ -24,6 +24,43 @@
     <button id="themeToggle" title="Promijeni temu">🌙</button>
   </header>
 
+ <main class="grid-kontejner">
+<nav class="side-left">
+      <h2>Rezultati Utakmica</h2>
+      <ul class="results-list">
+        
+        <li onclick="otvoriStatistiku('Lakers vs Celtics')" class="game-card">
+          <div class="team-row"><span class="team-name"><img src="images/lalakers.png" class="team-logo" alt="Lakers"> LAL</span> <strong class="win">112</strong></div>
+          <div class="team-row"><span class="team-name"><img src="images/celtics.png" class="team-logo" alt="Celtics"> BOS</span> <span>108</span></div>
+          <p class="game-info">Kraj • L. James (32 pts, 8 ast)</p>
+        </li>
+
+        <li onclick="otvoriStatistiku('Heat vs Knicks')" class="game-card">
+          <div class="team-row"><span class="team-name"><img src="images/miami.png" class="team-logo" alt="Heat"> MIA</span> <span>99</span></div>
+          <div class="team-row"><span class="team-name"><img src="images/knicks.png" class="team-logo" alt="Knicks"> NYK</span> <strong class="win">101</strong></div>
+          <p class="game-info">Kraj • R. Barrett (26 pts)</p>
+        </li>
+
+        <li onclick="otvoriStatistiku('Warriors vs Suns')" class="game-card">
+          <div class="team-row"><span class="team-name"><img src="images/gsw.png" class="team-logo" alt="Warriors"> GSW</span> <strong class="win">120</strong></div>
+          <div class="team-row"><span class="team-name"><img src="images/suns.png" class="team-logo" alt="Suns"> PHX</span> <span>117</span></div>
+          <p class="game-info">Kraj • S. Curry (38 pts)</p>
+        </li>
+
+        <li onclick="otvoriStatistiku('Bulls vs Nets')" class="game-card">
+          <div class="team-row"><span class="team-name"><img src="images/bulls.png" class="team-logo" alt="Bulls"> CHI</span> <span>104</span></div>
+          <div class="team-row"><span class="team-name"><img src="images/nets.png" class="team-logo" alt="Nets"> BKN</span> <strong class="win">110</strong></div>
+          <p class="game-info">Kraj • B. Simmons (Triple-double)</p>
+        </li>
+
+        <li onclick="otvoriStatistiku('Mavs vs Spurs')" class="game-card">
+          <div class="team-row"><span class="team-name"><img src="images/mavs.png" class="team-logo" alt="Mavericks"> DAL</span> <strong class="win">98</strong></div>
+          <div class="team-row"><span class="team-name"><img src="images/spurs.png" class="team-logo" alt="Spurs"> SAS</span> <span>95</span></div>
+          <p class="game-info">Kraj • L. Dončić (35 pts, 12 reb)</p>
+        </li>
+
+      </ul>
+    </nav>
 
 
 
@@ -73,3 +110,5 @@
         </article>
       </div>
     </section>
+
+    </main>
