@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBA Statistika</title>
+  <link rel="stylesheet" href="tptpstil.css">
+</head>
+
+<body>
+
+<header>
+  <nav class="glavni-meni">
+    <ul>
+      <li><a href="index.html">Početna</a></li>
+      <li><a href="sadrzaj.html">Statistika</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <a href="[nba.com](https://www.nba.com)" target="_blank">
+    <img src="images/logo.png" alt="NBA logo" class="nba-logo">
+  </a>
+
+  <button id="themeToggle">🌙</button>
+</header>
+
+<main>
+
+  <h1 id="vrh">NBA Statistika & Detalji</h1>
+
+  <!-- BOOKMARK NAVIGACIJA -->
+  <nav class="bookmark-nav">
+    <a href="#tabela">Tabela konferencija</a> |
+    <a href="#galerija">Galerija</a> |
+    <a href="#mapa">Stadion mapa</a> |
+    <a href="#lista">Ugniježdena lista</a>
+  </nav>
+
+  <!-- TABELA + SWITCH EAST/WEST -->
+  <section id="tabela">
+    <h2>NBA Konferencije</h2>
+
+    <div class="switcher">
+      <button onclick="prikaziIstočnu()">Istočna Konferencija</button>
+      <button onclick="prikaziZapadnu()">Zapadna Konferencija</button>
+    </div>
+
+    <table id="konferencijaTabela">
+      <thead>
+        <tr>
+          <th>Tim</th>
+          <th>Pobjede</th>
+          <th>Porazi</th>
+          <th>Win%</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaBody">
+        <!-- Popunjava JS -->
+      </tbody>
+    </table>
+  </section>
+
+
+  </main>
+  </body>
+</html>
