@@ -61,6 +61,76 @@
     </table>
   </section>
 
+  <!-- GALERIJA -->
+  <section id="galerija">
+    <h2>Galerija Igrača - GOAT Vote</h2>
+    <div class="galerija-kontejner">
+      <button class="galerija-btn" id="btnLijevo">&#8592;</button>
+      <div class="galerija-slider">
+        <div class="igrac-karta" data-igrac="LeBron James">
+          <img src="images/lebron.png" alt="LeBron James">
+          <h3>LeBron James</h3>
+          <p class="vote-broj">Glasovi: <span id="vote-LeBron James">0</span></p>
+          <button class="vote-btn" onclick="glasaj('LeBron James')">👑 Glasaj za GOAT</button>
+        </div>
+        <div class="igrac-karta" data-igrac="Michael Jordan">
+          <img src="images/jordan.png" alt="Michael Jordan">
+          <h3>Michael Jordan</h3>
+          <p class="vote-broj">Glasovi: <span id="vote-Michael Jordan">0</span></p>
+          <button class="vote-btn" onclick="glasaj('Michael Jordan')">👑 Glasaj za GOAT</button>
+        </div>
+        <div class="igrac-karta" data-igrac="Stephen Curry">
+          <img src="images/curry.png" alt="Stephen Curry">
+          <h3>Stephen Curry</h3>
+          <p class="vote-broj">Glasovi: <span id="vote-Stephen Curry">0</span></p>
+          <button class="vote-btn" onclick="glasaj('Stephen Curry')">👑 Glasaj za GOAT</button>
+        </div>
+        <div class="igrac-karta" data-igrac="Kobe Bryant">
+          <img src="images/kobe.png" alt="Kobe Bryant">
+          <h3>Kobe Bryant</h3>
+          <p class="vote-broj">Glasovi: <span id="vote-Kobe Bryant">0</span></p>
+          <button class="vote-btn" onclick="glasaj('Kobe Bryant')">👑 Glasaj za GOAT</button>
+        </div>
+        <div class="igrac-karta" data-igrac="Wilt Chamberlain">
+          <img src="images/wilt.png" alt="Wilt Chamberlain">
+          <h3>Wilt Chamberlain</h3>
+          <p class="vote-broj">Glasovi: <span id="vote-Wilt Chamberlain">0</span></p>
+          <button class="vote-btn" onclick="glasaj('Wilt Chamberlain')">👑 Glasaj za GOAT</button>
+        </div>
+        <div class="igrac-karta" data-igrac="Shaquille O'Neal">
+          <img src="images/shaq.png" alt="Shaquille O'Neal">
+          <h3>Shaquille O'Neal</h3>
+          <p class="vote-broj">Glasovi: <span id="vote-Shaquille O'Neal">0</span></p>
+          <button class="vote-btn" onclick="glasaj('Shaquille O\'Neal')">👑 Glasaj za GOAT</button>
+        </div>
+      </div>
+      <button class="galerija-btn" id="btnDesno">&#8594;</button>
+    </div>
+    <p id="vote-poruka" style="text-align:center; font-weight:bold; color: var(--crvena); min-height:24px;"></p>
+  </section>
+
+  <!-- STATISTIKA IGRAČA -->
+  <section id="statistika">
+    <h2>Top 10 Igrača Sezone 2025/26</h2>
+    <div class="switcher">
+      <button onclick="prikaziPoene()">🏀 Poeni</button>
+      <button onclick="prikaziAsistencije()">🎯 Asistencije</button>
+      <button onclick="prikaziSkokove()">💪 Skokovi</button>
+    </div>
+    <table id="igracTabela">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Igrač</th>
+          <th>Tim</th>
+          <th id="statHeader">PPG</th>
+        </tr>
+      </thead>
+      <tbody id="igracBody">
+      </tbody>
+    </table>
+  </section>
+
 
   </main>
   </body>
