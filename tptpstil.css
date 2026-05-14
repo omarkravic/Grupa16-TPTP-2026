@@ -1,0 +1,70 @@
+:root {
+  --plava: #1d428a;
+  --crvena: #c8102e;
+  --svjetla: #f4f4f8;
+  --tamna: #111;
+  --font: 'Arial', sans-serif;
+}
+
+/* OSNOVNI STILOVI */
+body {
+  margin: 0;
+  font-family: var(--font);
+  background-color: var(--svjetla);
+  color: var(--tamna);
+}
+
+/* HEADER */
+header {
+  background-color: var(--plava);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.glavni-meni ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.glavni-meni a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.glavni-meni a:hover {
+  text-decoration: underline;
+  color: #d1d1d1;
+}
+
+.nba-logo {
+  height: 60px;
+  transition: transform 0.3s;
+}
+
+.nba-logo:hover {
+  transform: scale(1.05);
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.3s;
+}
+
+#themeToggle:hover {
+  transform: scale(1.2) rotate(15deg);
+}
+
