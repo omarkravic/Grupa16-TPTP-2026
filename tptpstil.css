@@ -68,3 +68,73 @@ header {
   transform: scale(1.2) rotate(15deg);
 }
 
+/* GRID LAYOUT - index.html */
+.grid-kontejner {
+  display: grid;
+  grid-template-columns: 22% 53% 25%;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* SREDINA - VIJESTI */
+.main-content h2 {
+  text-align: center;
+  border-bottom: 2px solid var(--crvena);
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.news-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.news-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.news-card h3 {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+.news-card p {
+  font-size: 0.9rem;
+  color: #555;
+  flex-grow: 1;
+}
+
+.news-card a {
+  text-decoration: none;
+  color: var(--plava);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.news-card a:hover {
+  color: var(--crvena);
+}
+
