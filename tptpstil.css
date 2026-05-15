@@ -1,0 +1,248 @@
+:root {
+  --plava: #1d428a;
+  --crvena: #c8102e;
+  --svjetla: #f4f4f8;
+  --tamna: #111;
+  --font: 'Arial', sans-serif;
+}
+
+/* OSNOVNI STILOVI */
+body {
+  margin: 0;
+  font-family: var(--font);
+  background-color: var(--svjetla);
+  color: var(--tamna);
+}
+
+/* HEADER */
+header {
+  background-color: var(--plava);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.glavni-meni ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.glavni-meni a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.glavni-meni a:hover {
+  text-decoration: underline;
+  color: #d1d1d1;
+}
+
+.nba-logo {
+  height: 60px;
+  transition: transform 0.3s;
+}
+
+.nba-logo:hover {
+  transform: scale(1.05);
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.3s;
+}
+
+#themeToggle:hover {
+  transform: scale(1.2) rotate(15deg);
+}
+
+/* GRID LAYOUT - index.html */
+.grid-kontejner {
+  display: grid;
+  grid-template-columns: 22% 53% 25%;
+  gap: 20px;
+  padding: 20px;
+}
+
+
+/* SREDINA - VIJESTI */
+.main-content h2 {
+  text-align: center;
+  border-bottom: 2px solid var(--crvena);
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.news-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.news-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.news-card h3 {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+.news-card p {
+  font-size: 0.9rem;
+  color: #555;
+  flex-grow: 1;
+}
+
+.news-card a {
+  text-decoration: none;
+  color: var(--plava);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.news-card a:hover {
+  color: var(--crvena);
+}
+
+/* LIJEVA STRANA */
+.side-left {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.side-left h2 {
+  text-align: center;
+  border-bottom: 2px solid var(--plava);
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* KARTICE UTAKMICA */
+.game-card {
+  padding: 12px;
+  border-radius: 6px;
+  background-color: var(--svjetla);
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-card:hover {
+  background-color: var(--plava);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-color: var(--plava);
+}
+
+.team-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+.team-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  background-color: white;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.win {
+  color: #2e7d32;
+  font-size: 1.1rem;
+}
+
+.game-card:hover .win {
+  color: #a5d6a7;
+}
+
+.game-info {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 10px;
+  padding-top: 6px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+
+.game-card:hover .game-info {
+  color: #ddd;
+  border-top-color: #555;
+}
+
+/* UŽIVO */
+.live-game {
+  border: 2px solid var(--crvena);
+  background-color: #fffafb;
+}
+
+.live-text {
+  color: var(--crvena);
+  font-weight: bold;
+  animation: bljeskanje 1.5s infinite;
+}
+
+@keyframes bljeskanje {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+
