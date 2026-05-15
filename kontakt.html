@@ -57,11 +57,105 @@
         <p>Omar Memišević – JavaScript logika</p>
       </div>
 
+  <!-- MAPA -->
+      <div class="info-blok">
+        <h3>📍 Lokacija</h3>
+        <div class="kontakt-mapa">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.0!2d18.676!3d44.538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDMyJzE3LjAiTiAxOMKwNDAnMzMuNiJF!5e0!3m2!1sbs!2sba!4v1234567890"
+            title="Lokacija fakulteta na Google Maps"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
     </aside>
+
+    <!-- FORMA -->
+    <section class="kontakt-forma-sekcija">
+      <h2>Pošaljite poruku</h2>
+      <p>Odgovaramo u roku od 24 sata.</p>
+
+      <!-- Uspješna poruka -->
+      <div id="uspjesna-poruka" class="uspjesna-poruka" style="display:none;">
+        <p id="uspjesna-tekst"></p>
+      </div>
+
+      <div class="forma-wrapper">
+
+        <div class="forma-red">
+          <!-- IME -->
+          <div class="forma-polje">
+            <label for="ime">Ime <span class="obavezno">*</span></label>
+            <input type="text" id="ime" name="ime" placeholder="Vaše ime..." />
+            <span class="greska-poruka" id="ime-greska"></span>
+          </div>
+
+          <!-- PREZIME -->
+          <div class="forma-polje">
+            <label for="prezime">Prezime <span class="obavezno">*</span></label>
+            <input type="text" id="prezime" name="prezime" placeholder="Vaše prezime..." />
+            <span class="greska-poruka" id="prezime-greska"></span>
+          </div>
+        </div>
+
+        <div class="forma-red">
+          <!-- EMAIL -->
+          <div class="forma-polje">
+            <label for="email">E-mail <span class="obavezno">*</span></label>
+            <input type="text" id="email" name="email" placeholder="ime@mail.com" />
+            <span class="greska-poruka" id="email-greska"></span>
+          </div>
+
+          <!-- TELEFON -->
+          <div class="forma-polje">
+            <label for="telefon">Telefon <span class="obavezno">*</span></label>
+            <input type="text" id="telefon" name="telefon" placeholder="061-123-456" />
+            <span class="greska-poruka" id="telefon-greska"></span>
+          </div>
+        </div>
+
+        <!-- DROPDOWN -->
+        <div class="forma-polje forma-polje-full">
+          <label for="tema">Tema upita <span class="obavezno">*</span></label>
+          <select id="tema" name="tema">
+            <option value="">– Odaberite temu –</option>
+            <option value="statistika">Pitanje o statistici</option>
+            <option value="vijest">Prijedlog vijesti</option>
+            <option value="saradnja">Saradnja / partnerstvo</option>
+            <option value="greska">Prijava greške</option>
+            <option value="projekat">Pitanje o projektu</option>
+            <option value="ostalo">Ostalo</option>
+          </select>
+          <span class="greska-poruka" id="tema-greska"></span>
+        </div>
+
+        <!-- TEXTAREA -->
+        <div class="forma-polje forma-polje-full">
+          <label for="poruka">Poruka <span class="obavezno">*</span></label>
+          <textarea id="poruka" name="poruka" placeholder="Napišite vašu poruku (minimum 20 znakova)..." rows="6"></textarea>
+          <span class="greska-poruka" id="poruka-greska"></span>
+          <small id="poruka-brojac" class="poruka-brojac">0 / 20 znakova minimalno</small>
+        </div>
+
+        <!-- DUGMAD -->
+        <div class="forma-dugmad">
+          <button type="button" id="btn-posalji">🏀 Pošalji poruku</button>
+          <button type="button" id="btn-reset">Poništi</button>
+        </div>
+
+      </div>
+    </section>
      
 </div>
-
 </main>
+
+<footer>
+  <p>Završni projekat TPTP 2026 | Grupa 16 |  Noa Operhal, Omar Kravić, Omar Memišević</p>
+</footer>
+
+<script src="tptpskripta.js"></script>
 
 </body>
 </html>
