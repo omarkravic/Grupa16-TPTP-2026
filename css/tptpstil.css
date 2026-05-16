@@ -606,3 +606,37 @@ section h2 {
   font-weight: normal;
   color: var(--tamna);
 }
+
+/* DARK MODE sadrzaj */
+body.dark-mode section {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark-mode #konferencijaTabela th {
+  background-color: #0a0a0a;
+}
+
+body.dark-mode #konferencijaTabela tr:hover {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode #konferencijaTabela td {
+  border-bottom-color: #333;
+}
+
+body.dark-mode .igrac-karta h3 {
+  color: #66b2ff;
+}
+
+body.dark-mode .vote-broj {
+  color: #aaa;
+}
+
+body.dark-mode #lista ul li {
+  color: #66b2ff;
+}
+
+body.dark-mode #lista ul ul li {
+  color: #ddd;
+}
