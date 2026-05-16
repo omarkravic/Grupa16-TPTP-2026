@@ -76,69 +76,6 @@ header {
   padding: 20px;
 }
 
-
-/* SREDINA - VIJESTI */
-.main-content h2 {
-  text-align: center;
-  border-bottom: 2px solid var(--crvena);
-  padding-bottom: 10px;
-  margin-top: 0;
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.news-card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  padding: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  min-height: 360px;
-}
-
-.news-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-
-.news-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  display: block;
-}
-
-.news-card h3 {
-  margin: 5px 0;
-  font-size: 1.1rem;
-}
-
-.news-card p {
-  font-size: 0.9rem;
-  color: #555;
-  flex-grow: 1;
-}
-
-.news-card a {
-  text-decoration: none;
-  color: var(--plava);
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.news-card a:hover {
-  color: var(--crvena);
-}
-
 /* LIJEVA STRANA */
 .side-left {
   background: white;
@@ -245,4 +182,132 @@ header {
   100% { opacity: 1; }
 }
 
+/* SREDINA - VIJESTI */
+.main-content h2 {
+  text-align: center;
+  border-bottom: 2px solid var(--crvena);
+  padding-bottom: 10px;
+  margin-top: 0;
+}
 
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.news-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.news-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.news-card h3 {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+.news-card p {
+  font-size: 0.9rem;
+  color: #555;
+  flex-grow: 1;
+}
+
+.news-card a {
+  text-decoration: none;
+  color: var(--plava);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.news-card a:hover {
+  color: var(--crvena);
+}
+
+/* DESNA STRANA */
+.side-right {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.side-right h2 {
+  text-align: center;
+  border-bottom: 2px solid var(--plava);
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.video-box {
+  margin-bottom: 15px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.video-box iframe {
+  width: 100%;
+  height: 180px;
+  display: block;
+}
+
+#kupiKartuBtn {
+  width: 100%;
+  background-color: var(--crvena);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#kupiKartuBtn:hover {
+  background-color: #a50e23;
+  transform: scale(1.02);
+}
+
+#mapaBox {
+  margin-top: 15px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--plava);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
