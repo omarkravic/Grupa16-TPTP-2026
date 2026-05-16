@@ -117,3 +117,80 @@ if (kupiBtn) {
     document.getElementById("mapaBox").classList.toggle("hidden");
   });
 }
+// === STATISTIKA IGRAČA ===
+
+const poeni = [
+  { ime: "Shai Gilgeous-Alexander", tim: "OKC Thunder", stat: 32.7 },
+  { ime: "Giannis Antetokounmpo", tim: "Milwaukee Bucks", stat: 30.4 },
+  { ime: "LeBron James", tim: "LA Lakers", stat: 28.9 },
+  { ime: "Jayson Tatum", tim: "Boston Celtics", stat: 27.5 },
+  { ime: "Luka Dončić", tim: "Dallas Mavericks", stat: 27.1 },
+  { ime: "Kevin Durant", tim: "Phoenix Suns", stat: 26.8 },
+  { ime: "Donovan Mitchell", tim: "Cleveland Cavaliers", stat: 26.2 },
+  { ime: "Stephen Curry", tim: "Golden State Warriors", stat: 25.9 },
+  { ime: "Anthony Davis", tim: "LA Lakers", stat: 25.3 },
+  { ime: "Jalen Brunson", tim: "New York Knicks", stat: 24.8 },
+];
+
+const asistencije = [
+  { ime: "Tyrese Haliburton", tim: "Indiana Pacers", stat: 11.2 },
+  { ime: "Luka Dončić", tim: "Dallas Mavericks", stat: 10.5 },
+  { ime: "Trae Young", tim: "Atlanta Hawks", stat: 10.1 },
+  { ime: "LeBron James", tim: "LA Lakers", stat: 9.8 },
+  { ime: "Jalen Brunson", tim: "New York Knicks", stat: 8.9 },
+  { ime: "Shai Gilgeous-Alexander", tim: "OKC Thunder", stat: 8.4 },
+  { ime: "James Harden", tim: "LA Clippers", stat: 8.1 },
+  { ime: "Chris Paul", tim: "Golden State Warriors", stat: 7.8 },
+  { ime: "Darius Garland", tim: "Cleveland Cavaliers", stat: 7.5 },
+  { ime: "Fred VanVleet", tim: "Houston Rockets", stat: 7.2 },
+];
+
+const skokovi = [
+  { ime: "Victor Wembanyama", tim: "San Antonio Spurs", stat: 13.1 },
+  { ime: "Anthony Davis", tim: "LA Lakers", stat: 12.8 },
+  { ime: "Giannis Antetokounmpo", tim: "Milwaukee Bucks", stat: 12.3 },
+  { ime: "Nikola Jokić", tim: "Denver Nuggets", stat: 11.9 },
+  { ime: "Bam Adebayo", tim: "Miami Heat", stat: 11.2 },
+  { ime: "Domantas Sabonis", tim: "Sacramento Kings", stat: 10.9 },
+  { ime: "Karl-Anthony Towns", tim: "New York Knicks", stat: 10.5 },
+  { ime: "Evan Mobley", tim: "Cleveland Cavaliers", stat: 10.1 },
+  { ime: "Walker Kessler", tim: "Utah Jazz", stat: 9.8 },
+  { ime: "Jaren Jackson Jr.", tim: "Memphis Grizzlies", stat: 9.4 },
+];
+
+function popuniIgraceTabelu(podaci, jedinica) {
+  const tbody = document.getElementById("igracBody");
+  const header = document.getElementById("statHeader");
+  if (!tbody || !header) return;
+
+  header.textContent = jedinica;
+  tbody.innerHTML = "";
+
+  podaci.forEach((igrac, index) => {
+    const red = document.createElement("tr");
+
+    let medalja = "";
+    if (index === 0) medalja = "🥇";
+    else if (index === 1) medalja = "🥈";
+    else if (index === 2) medalja = "🥉";
+    else medalja = index + 1;
+
+    red.innerHTML = `
+      <td style="text-align:center; font-weight:bold;">${medalja}</td>
+      <td style="font-weight:bold;">${igrac.ime}</td>
+      <td style="color:#666;">${igrac.tim}</td>
+      <td style="text-align:center; font-weight:bold; color:var(--plava);">${igrac.stat}</td>
+    `;
+
+    if (index === 0) red.style.backgroundColor = "#fff8e1";
+    else if (index === 1) red.style.backgroundColor = "#f5f5f5";
+    else if (index === 2) red.style.backgroundColor = "#fbe9e7";
+
+    tbody.appendChild(red);
+  });
+}
+
+function prikaziPoene() { popuniIgraceTabelu(poeni, "PPG"); }
+function prikaziAsistencije() { popuniIgraceTabelu(asistencije, "APG"); }
+function prikaziSkokove() { popuniIgraceTabelu(skokovi, "RPG"); }
+
