@@ -311,3 +311,87 @@ footer {
   margin-top: 30px;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
+
+/* TAMNI MOD */
+body.dark-mode {
+  background-color: #121212;
+  color: #eaeaea;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #0a0a0a;
+}
+
+body.dark-mode .side-left,
+body.dark-mode .side-right,
+body.dark-mode .news-card {
+  background-color: #1e1e1e;
+  color: #ddd;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .game-card {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+body.dark-mode .game-card:hover {
+  background-color: var(--plava);
+  border-color: var(--plava);
+}
+
+body.dark-mode .game-info {
+  color: #aaa;
+  border-top-color: #444;
+}
+
+body.dark-mode .news-card p {
+  color: #aaa;
+}
+
+body.dark-mode .news-card a {
+  color: #66b2ff;
+}
+
+body.dark-mode .news-card a:hover {
+  color: #ff6666;
+}
+
+body.dark-mode .live-game {
+  background-color: #2a1114;
+  border-color: #a50e23;
+}
+
+/* RESPONZIVNOST */
+@media (max-width: 1024px) {
+  .grid-kontejner {
+    grid-template-columns: 30% 70%;
+  }
+  .side-right {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  .side-right h2, #kupiKartuBtn, #mapaBox {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-kontejner {
+    grid-template-columns: 1fr;
+  }
+  .side-right {
+    grid-template-columns: 1fr;
+  }
+  .glavni-meni ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
