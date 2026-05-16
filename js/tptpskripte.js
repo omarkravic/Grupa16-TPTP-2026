@@ -79,3 +79,41 @@ window.addEventListener("load", () => {
     popuniTabelu(istočna);
   }
 });
+
+// === TAMNI / SVJETLI MOD ===
+
+const themeToggle = document.getElementById("themeToggle");
+
+// Provjeri da li postoji sačuvana tema u LocalStorage
+const savedTheme = localStorage.getItem("theme");
+
+// Ako postoji "dark", primijeni
+if (savedTheme === "dark") {
+  document.body.classList.add("dark-mode");
+  themeToggle.textContent = "☀️";
+}
+
+// Klik na dugme mijenja temu
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  // Provjera trenutnog stanja
+  const isDark = document.body.classList.contains("dark-mode");
+
+  // U LocalStorage snimi izbor
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+
+  // Promijeni emoji ikonu
+  themeToggle.textContent = isDark ? "☀️" : "🌙";
+});
+// Klik na rezultat -> prikaz poruke o statistici
+function otvoriStatistiku(naziv) {
+  window.location.href = "sadrzaj.html";
+}
+// Klik na "Kupi kartu" -> prikaz / sakrivanje mape
+const kupiBtn = document.getElementById("kupiKartuBtn");
+if (kupiBtn) {
+  kupiBtn.addEventListener("click", () => {
+    document.getElementById("mapaBox").classList.toggle("hidden");
+  });
+}
