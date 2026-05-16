@@ -194,3 +194,84 @@ function prikaziPoene() { popuniIgraceTabelu(poeni, "PPG"); }
 function prikaziAsistencije() { popuniIgraceTabelu(asistencije, "APG"); }
 function prikaziSkokove() { popuniIgraceTabelu(skokovi, "RPG"); }
 
+// === GALERIJA GOAT VOTE ===
+const igraci = [
+  "LeBron James",
+  "Michael Jordan",
+  "Stephen Curry",
+  "Kobe Bryant",
+  "Wilt Chamberlain",
+  "Shaquille O'Neal"
+];
+
+let trenutniIndex = 0;
+
+function ucitajGlasove() {
+  igraci.forEach(igrac => {
+    const glasovi = localStorage.getItem("vote_" + igrac) || 0;
+    const el = document.getElementById("vote-" + igrac);
+    if (el) el.textContent = glasovi;
+  });
+}
+
+function provjeriGlasanje() {
+  const glasao = localStorage.getItem("glasao_za");
+  if (glasao) {
+    document.querySelectorAll(".vote-btn").forEach(btn => {
+      btn.classList.add("glasao");
+      btn.textContent = "✅ Glasano";
+      btn.disabled = true;
+    });
+  }
+}
+
+function glasaj(igrac) {
+  if (localStorage.getItem("glasao_za")) {
+    document.getElementById("vote-poruka").textContent = "❌ Već si glasao!";
+    return;
+  }
+  const trenutno = parseInt(localStorage.getItem("vote_" + igrac) || 0);
+  localStorage.setItem("vote_" + igrac, trenutno + 1);
+  localStorage.setItem("glasao_za", igrac);
+  ucitajGlasove();
+  provjeriGlasanje();
+  document.getElementById("vote-poruka").textContent = "✅ Glasao si za " + igrac + " kao GOAT!";
+}
+
+function prikaziIgraca(index) {
+  const kartice = document.querySelectorAll(".igrac-karta");
+  kartice.forEach(k => k.classList.remove("aktivna"));
+  kartice[index].classList.add("aktivna");
+}
+
+window.addEventListener("load", () => {
+  // Tabela konferencija
+  if (document.getElementById("tabelaBody")) {
+    popuniTabelu(istočna);
+  }
+
+  // Statistika igrača
+  if (document.getElementById("igracBody")) {
+    popuniIgraceTabelu(poeni, "PPG");
+  }
+
+  // Galerija
+  const btnLijevo = document.getElementById("btnLijevo");
+  const btnDesno = document.getElementById("btnDesno");
+
+  if (btnLijevo && btnDesno) {
+    prikaziIgraca(0);
+    ucitajGlasove();
+    provjeriGlasanje();
+
+    btnDesno.addEventListener("click", () => {
+      trenutniIndex = (trenutniIndex + 1) % igraci.length;
+      prikaziIgraca(trenutniIndex);
+    });
+
+    btnLijevo.addEventListener("click", () => {
+      trenutniIndex = (trenutniIndex - 1 + igraci.length) % igraci.length;
+      prikaziIgraca(trenutniIndex);
+    });
+  }
+});
