@@ -275,3 +275,105 @@ window.addEventListener("load", () => {
     });
   }
 });
+
+
+// VALIDACIJA KONTAKT FORME
+// Uz pomoć Claudea sam razumio kako regex za email radi: ^ označava početak stringa,
+// [\w.-]+ znači jedno ili više alfanumeričkih znakova/tačke/crtice, @ je literal,
+// [a-z]{2,} je ekstenzija min 2 slova, /i = case-insensitive. Za telefon: \+? opcionalni
+// +, [\d\s\-]{6,15} su cifre/razmaci/crtice.
+
+
+var emailRegex = /^[\w.-]+@[\w.-]+\.[a-z]{2,}$/i;
+var telefonRegex = /^\+?[\d\s\-]{6,15}$/;
+
+function prikaziGresku(id, poruka) {
+  var el = document.getElementById(id);
+  var inputId = id.replace('-greska', '');
+  var input = document.getElementById(inputId);
+  if (el) el.textContent = poruka;
+  if (input) input.classList.add('greska');
+}
+
+function ukloniGresku(id) {
+  var el = document.getElementById(id);
+  var inputId = id.replace('-greska', '');
+  var input = document.getElementById(inputId);
+  if (el) el.textContent = '';
+  if (input) input.classList.remove('greska');
+}
+
+function validirajIme() {
+  var v = document.getElementById('ime');
+  if (!v) return true;
+  if (!v.value.trim() || v.value.trim().length < 2) {
+    prikaziGresku('ime-greska', 'Unesite ime (min. 2 znaka).');
+    return false;
+  }
+  ukloniGresku('ime-greska');
+  return true;
+}
+
+function validirajPrezime() {
+  var v = document.getElementById('prezime');
+  if (!v) return true;
+  if (!v.value.trim() || v.value.trim().length < 2) {
+    prikaziGresku('prezime-greska', 'Unesite prezime (min. 2 znaka).');
+    return false;
+  }
+  ukloniGresku('prezime-greska');
+  return true;
+}
+
+function validirajEmail() {
+  var v = document.getElementById('email');
+  if (!v) return true;
+  if (!v.value.trim()) {
+    prikaziGresku('email-greska', 'Unesite e-mail adresu.');
+    return false;
+  }
+  if (!emailRegex.test(v.value.trim())) {
+    prikaziGresku('email-greska', 'Unesite ispravnu e-mail adresu (npr. ime@mail.com).');
+    return false;
+  }
+  ukloniGresku('email-greska');
+  return true;
+}
+
+function validirajTelefon() {
+  var v = document.getElementById('telefon');
+  if (!v) return true;
+  if (!v.value.trim()) {
+    prikaziGresku('telefon-greska', 'Unesite broj telefona.');
+    return false;
+  }
+  if (!telefonRegex.test(v.value.trim())) {
+    prikaziGresku('telefon-greska', 'Dozvoljene su cifre, razmaci i crtice (6–15 znakova).');
+    return false;
+  }
+  ukloniGresku('telefon-greska');
+  return true;
+}
+
+function validirajTemu() {
+  var v = document.getElementById('tema');
+  if (!v) return true;
+  if (!v.value) {
+    prikaziGresku('tema-greska', 'Odaberite temu upita.');
+    return false;
+  }
+  ukloniGresku('tema-greska');
+  return true;
+}
+
+function validirajPoruku() {
+  var v = document.getElementById('poruka');
+  if (!v) return true;
+  if (!v.value.trim() || v.value.trim().length < 20) {
+    prikaziGresku('poruka-greska', 'Poruka mora imati najmanje 20 znakova (još ' + Math.max(0, 20 - v.value.trim().length) + ').');
+    return false;
+  }
+  ukloniGresku('poruka-greska');
+  return true;
+}
+
