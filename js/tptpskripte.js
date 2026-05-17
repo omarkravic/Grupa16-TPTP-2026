@@ -205,6 +205,8 @@ const igraci = [
 ];
 
 let trenutniIndex = 0;
+// Ova varijabla se garantovano resetuje na 'false' pri svakom osvježavanju stranice (F5)
+let korisnikGlasao = false; 
 
 function ucitajGlasove() {
   igraci.forEach(igrac => {
@@ -215,24 +217,36 @@ function ucitajGlasove() {
 }
 
 function provjeriGlasanje() {
-  const glasao = localStorage.getItem("glasao_za");
-  if (glasao) {
+  // Ako je varijabla true, zaključaj dugmad za glasanje
+  if (korisnikGlasao) {
     document.querySelectorAll(".vote-btn").forEach(btn => {
       btn.classList.add("glasao");
       btn.textContent = "✅ Glasano";
       btn.disabled = true;
     });
+  } else {
+    // Ako je false (nakon osvježavanja), osiguraj da su dugmad ponovo aktivna
+    document.querySelectorAll(".vote-btn").forEach(btn => {
+      btn.classList.remove("glasao");
+      btn.textContent = "Glasaj"; 
+      btn.disabled = false;
+    });
   }
 }
 
 function glasaj(igrac) {
-  if (localStorage.getItem("glasao_za")) {
+  if (korisnikGlasao) {
     document.getElementById("vote-poruka").textContent = "❌ Već si glasao!";
     return;
   }
+  
+  // Ukupne glasove i dalje čuvamo i sabiramo u localStorage da se ne obrišu
   const trenutno = parseInt(localStorage.getItem("vote_" + igrac) || 0);
   localStorage.setItem("vote_" + igrac, trenutno + 1);
-  localStorage.setItem("glasao_za", igrac);
+  
+  // Zaključavamo glasanje u ovoj sesiji
+  korisnikGlasao = true;
+  
   ucitajGlasove();
   provjeriGlasanje();
   document.getElementById("vote-poruka").textContent = "✅ Glasao si za " + igrac + " kao GOAT!";
@@ -240,8 +254,10 @@ function glasaj(igrac) {
 
 function prikaziIgraca(index) {
   const kartice = document.querySelectorAll(".igrac-karta");
-  kartice.forEach(k => k.classList.remove("aktivna"));
-  kartice[index].classList.add("aktivna");
+  if (kartice.length > 0) {
+    kartice.forEach(k => k.classList.remove("aktivna"));
+    kartice[index].classList.add("aktivna");
+  }
 }
 
 window.addEventListener("load", () => {
@@ -262,7 +278,7 @@ window.addEventListener("load", () => {
   if (btnLijevo && btnDesno) {
     prikaziIgraca(0);
     ucitajGlasove();
-    provjeriGlasanje();
+    provjeriGlasanje(); // Na refresh će uvijek otključati dugmad jer je korisnikGlasao = false
 
     btnDesno.addEventListener("click", () => {
       trenutniIndex = (trenutniIndex + 1) % igraci.length;
