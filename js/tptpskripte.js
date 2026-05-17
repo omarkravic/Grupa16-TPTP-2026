@@ -402,3 +402,55 @@ if (porukaEl) {
   });
 }
 
+// Submit dugme
+var btnPosalji   = document.getElementById('btn-posalji');
+var uspjesnaPoruka = document.getElementById('uspjesna-poruka');
+var uspjesniTekst  = document.getElementById('uspjesna-tekst');
+
+if (btnPosalji) {
+  btnPosalji.addEventListener('click', function () {
+    var ok = validirajIme() & validirajPrezime() & validirajEmail() &
+             validirajTelefon() & validirajTemu() & validirajPoruku();
+    if (ok) {
+      var ime = document.getElementById('ime').value.trim();
+      if (uspjesniTekst) {
+        uspjesniTekst.textContent = '🏀 Hvala, ' + ime + '! Vaša poruka je uspješno poslana. Javit ćemo vam se u roku od 24 sata.';
+      }
+      if (uspjesnaPoruka) {
+        uspjesnaPoruka.style.display = 'block';
+        uspjesnaPoruka.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      ['ime','prezime','email','telefon','poruka'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) { el.value = ''; el.classList.remove('greska'); }
+      });
+      if (temaEl) { temaEl.value = ''; temaEl.classList.remove('greska'); }
+      if (brojanikEl) { brojanikEl.textContent = '0 / 20 znakova minimalno'; brojanikEl.style.color = '#999'; }
+      setTimeout(function () {
+        if (uspjesnaPoruka) uspjesnaPoruka.style.display = 'none';
+      }, 6000);
+    } else {
+      var prvaGreska = document.querySelector('.greska');
+      if (prvaGreska) { prvaGreska.scrollIntoView({ behavior: 'smooth', block: 'center' }); prvaGreska.focus(); }
+    }
+  });
+}
+
+// Reset dugme
+var btnReset = document.getElementById('btn-reset');
+if (btnReset) {
+  btnReset.addEventListener('click', function () {
+    ['ime','prezime','email','telefon','poruka'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) { el.value = ''; el.classList.remove('greska'); }
+    });
+    if (temaEl) { temaEl.value = ''; temaEl.classList.remove('greska'); }
+    ['ime-greska','prezime-greska','email-greska','telefon-greska','tema-greska','poruka-greska'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = '';
+    });
+    if (brojanikEl) { brojanikEl.textContent = '0 / 20 znakova minimalno'; brojanikEl.style.color = '#999'; }
+    if (uspjesnaPoruka) uspjesnaPoruka.style.display = 'none';
+  });
+}
+
