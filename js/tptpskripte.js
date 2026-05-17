@@ -377,3 +377,28 @@ function validirajPoruku() {
   return true;
 }
 
+// Live validacija na blur
+var imeEl     = document.getElementById('ime');
+var prezimeEl = document.getElementById('prezime');
+var emailEl   = document.getElementById('email');
+var telefonEl = document.getElementById('telefon');
+var temaEl    = document.getElementById('tema');
+var porukaEl  = document.getElementById('poruka');
+var brojanikEl = document.getElementById('poruka-brojac');
+
+if (imeEl)     imeEl.addEventListener('blur', validirajIme);
+if (prezimeEl) prezimeEl.addEventListener('blur', validirajPrezime);
+if (emailEl)   emailEl.addEventListener('blur', validirajEmail);
+if (telefonEl) telefonEl.addEventListener('blur', validirajTelefon);
+if (temaEl)    temaEl.addEventListener('change', validirajTemu);
+if (porukaEl) {
+  porukaEl.addEventListener('blur', validirajPoruku);
+  porukaEl.addEventListener('input', function () {
+    var d = porukaEl.value.trim().length;
+    if (brojanikEl) {
+      brojanikEl.textContent = d + ' / 20 znakova minimalno';
+      brojanikEl.style.color = d >= 20 ? '#2e7d32' : '#999';
+    }
+  });
+}
+
