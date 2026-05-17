@@ -18,7 +18,7 @@ Ovaj projekat predstavlja web stranicu za praćenje NBA lige. Stranica omogućav
 - JavaScript (bez biblioteka)
 
 ## AI alati korišteni u projektu
-- Tokom izrade ovog projekta korištena je umjetna inteligencija (ChatGPT, Gemini).
+- Tokom izrade ovog projekta korištena je umjetna inteligencija (ChatGPT, Claude).
 - Svi dijelovi koda u čijoj je izradi pomogao AI su označeni odgovarajućim komentarima unutar izvornog koda.
 
   ## Napomena
